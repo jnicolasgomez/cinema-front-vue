@@ -1,18 +1,18 @@
 <template>
   <div class="home">
-    <h1>Red Bicicletas Mapa</h1>
-    <BicycleMap />
+    <h1>Cines</h1>
+    <CinemaMap />
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
 import { useStore } from 'vuex';
-import BicycleMap from '../components/BicycleMap.vue'
+import CinemaMap from '../components/CinemaMap.vue'
 export default defineComponent({
   name: 'HomeView',
   components: {
-    BicycleMap,
+    CinemaMap,
   },
   setup () {
   },

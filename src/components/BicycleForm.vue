@@ -1,6 +1,6 @@
 <template>
     <form @submit.prevent="handleSubmit">
-        <h1>{{type}} Bicicleta</h1>
+        <h1>{{type}} Pelicula</h1>
         <label>Modelo</label>
         <select required v-model="model">
             <option value="Ruta">Ruta</option>

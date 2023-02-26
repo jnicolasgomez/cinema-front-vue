@@ -3,11 +3,11 @@ import Bicycle from "@/types/Bicycle";
 import axios, { AxiosError } from "axios";
 import { User } from 'firebase/auth'
 
-const bicyclesUrl: string = process.env.VUE_APP_BICYCLES_API || 'http://localhost:3002';
+const bicyclesUrl: string = process.env.VUE_APP_BICYCLES_API || 'http://localhost:3001';
 
 async function getBicycles(): Promise<Bicycle[]> {
     let response;
-    const url = `${bicyclesUrl}/bicycles`;
+    const url = `${bicyclesUrl}/movies`;
     const user: User = store.getters.user;
     const headers = {
         Authorization: "Bearer " + await user.getIdToken(true)

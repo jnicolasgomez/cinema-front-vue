@@ -1,18 +1,18 @@
 <template>
   <div class="app">
-    <BicycleHeader/>
+    <FilmsHeader/>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent, onBeforeMount } from 'vue'
 import { useStore } from 'vuex'
-import BicycleHeader from './components/BicycleHeader.vue'
+import FilmsHeader from './components/FilmsHeader.vue'
 
 
 export default defineComponent({
   name: 'App',
-  components: {BicycleHeader},
+  components: {FilmsHeader},
   setup() {
     const store = useStore()
 

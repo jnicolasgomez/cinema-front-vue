@@ -1,17 +1,17 @@
 <template>
   <div class="home">
-    <BicycleList />
+    <FilmsList />
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
 import { useStore } from 'vuex';
-import BicycleList from '../components/BicycleList.vue'
+import FilmsList from '../components/FilmsList.vue'
 export default defineComponent({
   name: 'HomeView',
   components: {
-    BicycleList
+    FilmsList
   },
   setup () {
   },

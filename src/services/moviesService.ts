@@ -1,13 +1,13 @@
 import store from "@/store";
-import Bicycle from "@/types/Bicycle";
+import Movie from "@/types/Movie";
 import axios, { AxiosError } from "axios";
 import { User } from 'firebase/auth'
 
-const bicyclesUrl: string = process.env.VUE_APP_BICYCLES_API || 'http://localhost:3001';
+const moviesUrl: string = process.env.VUE_APP_MOVIES_API || 'http://localhost:3001';
 
-async function getBicycles(): Promise<Bicycle[]> {
+async function getMovies(): Promise<Movie[]> {
     let response;
-    const url = `${bicyclesUrl}/movies`;
+    const url = `${moviesUrl}/movies`;
     const user: User = store.getters.user;
     const headers = {
         Authorization: "Bearer " + await user.getIdToken(true)
@@ -15,46 +15,46 @@ async function getBicycles(): Promise<Bicycle[]> {
     try {
         response = await axios.get(url, { headers });
     } catch (error: any | AxiosError) {
-        console.log("file: bicyclesService.ts ~ line 13 ~ getBicycles ~ error", error)
+        console.log("file: moviesService.ts ~ getMovies ~ error", error)
         throw error;
     }
   
     return response.data;
 }
 
-async function createBicycle(bicycle: Bicycle) {
+async function createMovie(movie: Movie) {
     let response;
-    const url = `${bicyclesUrl}/bicycles`;
+    const url = `${moviesUrl}/movies`;
     const user: User = store.getters.user;
     const headers = {
         Authorization: "Bearer " + await user.getIdToken(true)
     };
     try {
-        response = await axios.post(url, bicycle, { headers });
+        response = await axios.post(url, movie, { headers });
     } catch (error) {
-        console.log("file: bicyclesService.ts ~ line 25 ~ createBicycle ~ error", error)
+        console.log("file: moviesService.ts ~ createMovie ~ error", error)
     }
     return response.data;
 }
 
-async function editBicycle(id: string, bicycle: Bicycle) {
+async function editMovie(id: string, movie: Movie) {
     let response;
-    const url = `${bicyclesUrl}/bicycles/${id}`;
+    const url = `${moviesUrl}/movies/${id}`;
     const user: User = store.getters.user;
     const headers = {
         Authorization: "Bearer " + await user.getIdToken(true)
     };
     try {
-        response = await axios.put(url, bicycle, { headers });
+        response = await axios.put(url, movie, { headers });
     } catch (error) {
-        console.log("file: bicyclesService.ts ~ line 36 ~ editBicycle ~ error", error)
+        console.log("file: moviesService.ts ~ line 36 ~ editMovie ~ error", error)
     }
     return response.data;
 }
 
-async function deleteBicycle(id: string) {
+async function deleteMovie(id: string) {
     let response;
-    const url = `${bicyclesUrl}/bicycles/${id}`;
+    const url = `${moviesUrl}/movies/${id}`;
     const user: User = store.getters.user;
     const headers = {
         Authorization: "Bearer " + await user.getIdToken(true)
@@ -62,9 +62,9 @@ async function deleteBicycle(id: string) {
     try {
         response = await axios.delete(url, { headers });
     } catch (error) {
-        console.log("file: bicyclesService.ts ~ line 47 ~ deleteBicycle ~ error", error)
+        console.log("file: moviesService.ts ~ line 47 ~ deleteMovie ~ error", error)
     }
     return response.data;
 }
 
-export {getBicycles, createBicycle, editBicycle, deleteBicycle};
+export {getMovies, createMovie, editMovie, deleteMovie};

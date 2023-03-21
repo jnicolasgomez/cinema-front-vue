@@ -1,47 +1,47 @@
 <template>
     <div class="bicycle-list">
         <ul>
-            <li v-for="bicycle in bicycles" :key="bicycle._id" >
+            <li v-for="bicycle in movies" :key="bicycle._id" >
                 <img :src="bicycle.img"/>
                 <h2>{{ bicycle.title }}</h2>
                 <!--div class="location">
                     <p> {{ bicycle.description}} </p>
                 </div-->
-                <!--button @click="editBicycle(bicycle._id)" class="edit-button">Editar</button>
-                <button @click="deleteBicycle(bicycle._id)" class="delete-button">Eliminar</button-->
+                <!--button @click="editMovie(bicycle._id)" class="edit-button">Editar</button>
+                <button @click="deleteMovie(bicycle._id)" class="delete-button">Eliminar</button-->
             </li>
         </ul>
-        <button @click="addBicycle()" class="add-button"> + Crear Pelicula</button>
+        <button @click="addMovie()" class="add-button"> + Crear Pelicula</button>
     </div>
 </template>
 
 <script lang="ts">
 import router from '@/router';
-import { deleteBicycle } from '@/services/bicyclesService';
+import { deleteMovie } from '@/services/moviesService';
 import store from '@/store';
 import { defineComponent } from 'vue';
 
 export default defineComponent({
     methods: {
-        editBicycle(id: string) {
+        editMovie(id: string) {
             router.push({ path: `/edit/${id}`, name:"edit", params: { id}});
         },
-        addBicycle() {
+        addMovie() {
             router.push({ path: `/create`, name:"create"});
         },
-        async deleteBicycle( id: string) {
-            const response = await deleteBicycle(id);
+        async deleteMovie( id: string) {
+            const response = await deleteMovie(id);
             if (response.deletedCount > 0) {
-                const toRemove = this.bicycles.findIndex((obj) => obj._id === id);
+                const toRemove = this.movies.findIndex((obj) => obj._id === id);
                 // eslint-disable-next-line vue/no-mutating-props
-                this.bicycles.splice(toRemove, 1);
+                this.movies.splice(toRemove, 1);
             }
             console.log(response);
         }
     },
     computed: {
-        bicycles () {
-            return store.getters.bicycles;
+        movies () {
+            return store.getters.movies;
         }
     }
 })

@@ -1,28 +1,22 @@
 <template>
     <form @submit.prevent="handleSubmit">
         <h1>{{type}} Pelicula</h1>
-        <label>Modelo</label>
-        <select required v-model="model">
-            <option value="Ruta">Ruta</option>
-            <option value="Cross">Cross</option>
-            <option value="Mountain">Mountain</option>
-        </select>
-        <label>Marca</label>
-        <input v-model="brand" type="text" required>
-        <label>Color</label>
-        <input  v-model="color" type="text" required>
-        <label>Latitud</label>
-        <input v-model="lat" type="number" step="0.0001" min="6.22" max="6.28" required>
-        <label>Longitud</label>
-        <input v-model="long" type="number" min="-75.6" max="-75.53" step="0.0001" required>
+        <label>Titulo</label>
+        <input v-model="title" type="text" required>
+        <label>Descripción</label>
+        <input  v-model="description" type="text" required>
+        <label>Año</label>
+        <input v-model="year" type="number" required>
+        <label>puntaje</label>
+        <input v-model="score" type="number" required>
         <button> {{type}} </button>
     </form>
 </template>
 <script lang="ts">
 import router from '@/router'
-import Bicycle from '@/types/Bicycle'
+import Movie from '@/types/Movie'
 import { defineComponent } from 'vue'
-import {createBicycle, editBicycle} from '../services/bicyclesService'
+import {createMovie, editMovie} from '../services/moviesService'
 
 export default defineComponent({
     setup() {
@@ -33,43 +27,42 @@ export default defineComponent({
             required: true,
             type: String
         },
-        bicycleId: {
+        movieId: {
             type: String
         }
     },
     data() {
         return {
-            model: '',
-            color: '',
-            lat: 6.25,
-            long: -75.56,
+            title: '',
+            description: '',
+            year: 2000,
+            score: 0,
             brand: ''
         }
     },
     methods: {
         async handleSubmit() {
-            const coordinates: [number, number] = [this.lat , this.long];
-            const bicycle: Bicycle = {
-                model: this.model,
-                color: this.color,
-                coordinates,
-                brand: this.brand
+            const movie: Movie = {
+                title: this.title,
+                year: this.year,
+                description: this.description,
+                score: this.score
             }
             if (this.type === "Editar") {
-                if (this.bicycleId) {
-                    const response = await editBicycle(this.bicycleId, bicycle);
-                    console.log('Bicycle edited successfully');
+                if (this.movieId) {
+                    const response = await editMovie(this.movieId, movie);
+                    console.log('Movie edited successfully');
                     console.log(response);
                 } else (
-                    console.log('Error editing Bicycle')
+                    console.log('Error editing Movie')
                 )
                 
             } else if (this.type === "Crear") {
-                const response = await createBicycle(bicycle);
-                console.log('Bicycle created successfully');
+                const response = await createMovie(movie);
+                console.log('Movie created successfully');
                 console.log(response);
             }
-            router.push({ path: '/bicycles', replace: true });
+            router.push({ path: '/movies', replace: true });
         }
     }
 })

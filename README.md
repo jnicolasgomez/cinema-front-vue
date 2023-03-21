@@ -27,15 +27,13 @@ npm run lint
 #### Home view
 ![home_view](https://github.com/jnicolasgomez/bicycle-front/blob/main/documentation/map_view.JPG)
 
-#### Bicycles view
-![bicycles_view](https://github.com/jnicolasgomez/bicycle-front/blob/main/documentation/bicycles_view.JPG)
 
 #### Create Bicycle view
 ![new_bicycle_view](https://github.com/jnicolasgomez/bicycle-front/blob/main/documentation/create_view.JPG)
 
 ## Environment variables
 ```
-VUE_APP_BICYCLES_API -> back end url + port
+VUE_APP_MOVIES_API -> back end url + port
 ```
 Firebase auth configuration
 https://firebase.google.com/docs/auth

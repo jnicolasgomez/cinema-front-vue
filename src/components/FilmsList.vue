@@ -2,7 +2,7 @@
     <div class="bicycle-list">
         <ul>
             <li v-for="bicycle in movies" :key="bicycle._id" >
-                <img :src="bicycle.img"/>
+                <img src="https://media.istockphoto.com/id/1244034031/vector/cinema-poster-with-cola-film-strip-and-clapper-vector.jpg?s=612x612&w=0&k=20&c=JN4E5qJgcq3qm89rSc2BIJT6AZ80MvRJie__r3OENY8="/>
                 <h2>{{ bicycle.title }}</h2>
                 <!--div class="location">
                     <p> {{ bicycle.description}} </p>

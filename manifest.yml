@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: cinema-front
+  name: cinema-front
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cinema-front
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: cinema-front
+    spec:
+      containers:
+      - image: 579741038344.dkr.ecr.us-east-2.amazonaws.com/cinema-repository:1.0.2-beta.5
+        name: cinema-front
+        imagePullPolicy: Always
+        resources: {}
+        ports:
+          - containerPort: 8080 
+        env:
+          - name: VUE_APP_MOVIES_API_URL
+            value: http://3.145.75.95
+          - name: VUE_APP_MOVIES_API_PORT
+            value: '32735'
+status: {}
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: cinema-front-service
+  labels:
+    run: cinema-front-service
+spec:
+  ports:
+  - port: 8080
+    targetPort: 8080
+    protocol: TCP
+  selector:
+    app: cinema-front
+  type: NodePort

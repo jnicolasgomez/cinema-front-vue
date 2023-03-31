@@ -20,17 +20,6 @@ npm run build
 npm run lint
 ```
 
-## Overview
-#### Login
-![login_view](https://github.com/jnicolasgomez/bicycle-front/blob/main/documentation/login_view1.JPG)
-
-#### Home view
-![home_view](https://github.com/jnicolasgomez/bicycle-front/blob/main/documentation/map_view.JPG)
-
-
-#### Create Bicycle view
-![new_bicycle_view](https://github.com/jnicolasgomez/bicycle-front/blob/main/documentation/create_view.JPG)
-
 ## Environment variables
 ```
 VUE_APP_MOVIES_API_URL

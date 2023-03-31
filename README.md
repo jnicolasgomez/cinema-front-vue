@@ -27,15 +27,14 @@ npm run lint
 #### Home view
 ![home_view](https://github.com/jnicolasgomez/bicycle-front/blob/main/documentation/map_view.JPG)
 
-#### Bicycles view
-![bicycles_view](https://github.com/jnicolasgomez/bicycle-front/blob/main/documentation/bicycles_view.JPG)
 
 #### Create Bicycle view
 ![new_bicycle_view](https://github.com/jnicolasgomez/bicycle-front/blob/main/documentation/create_view.JPG)
 
 ## Environment variables
 ```
-VUE_APP_BICYCLES_API -> back end url + port
+VUE_APP_MOVIES_API_URL
+VUE_APP_MOVIES_API_PORT
 ```
 Firebase auth configuration
 https://firebase.google.com/docs/auth
@@ -50,9 +49,5 @@ VUE_APP_FIREBASE_APP_ID
 
 ## URL
 
-http://red-bicycle.site/#/
-Deployed on GCP
-
-## Back end repository
-
-https://github.com/jnicolasgomez/bicycle-rest-api
+http://3.145.75.95:31641/#/login
+Deployed on AWS EKS

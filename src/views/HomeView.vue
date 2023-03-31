@@ -18,7 +18,7 @@ export default defineComponent({
   },
   async created() {
     const store = useStore();
-    await store.dispatch('getBicycles');
+    await store.dispatch('getMovies');
   },
 });
 </script>

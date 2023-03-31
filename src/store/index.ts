@@ -4,20 +4,20 @@ import { auth } from '../firebase'
 import { createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   signOut, User } from 'firebase/auth'
-import Bicycle from '@/types/Bicycle'
-import { getBicycles } from '@/services/bicyclesService'
+import Movie from '@/types/Movie'
+import { getMovies } from '@/services/moviesService'
 
 export default createStore({
   state: {
     user: null,
-    bicycles: []
+    movies: []
   },
   getters: {
     user (state): User | null {
       return state.user;
     },
-    bicycles (state): Bicycle[] {
-      return state.bicycles;
+    movies (state): Movie[] {
+      return state.movies;
     }
   },
   mutations: {
@@ -27,8 +27,8 @@ export default createStore({
     CLEAR_USER (state) {
       state.user = null;
     },
-    SET_BICYCLES (state, bicycles) {
-      state.bicycles = bicycles;
+    SET_MOVIES (state, movies) {
+      state.movies = movies;
     },
   },
   actions: {
@@ -99,17 +99,17 @@ export default createStore({
         }
       })
     },
-    async getBicycles ({ commit } ) {
-      let bicycles: Bicycle[] | null = [];
+    async getMovies ({ commit } ) {
+      let movies: Movie[] | null = [];
       try {
-        bicycles = await getBicycles();
-        commit('SET_BICYCLES', bicycles);
-        localStorage.setItem('bicycles', JSON.stringify(bicycles));
+        movies = await getMovies();
+        commit('SET_MOVIES', movies);
+        localStorage.setItem('movies', JSON.stringify(movies));
       } catch (error: any ) {
-        const localBicycles = localStorage.getItem('bicycles');
-        if (localBicycles) {
-          bicycles = JSON.parse(localBicycles) as Bicycle[];
-          commit('SET_BICYCLES', bicycles);
+        const localMovies = localStorage.getItem('movies');
+        if (localMovies) {
+          movies = JSON.parse(localMovies) as Movie[];
+          commit('SET_MOVIES', movies);
         }
       }
     },

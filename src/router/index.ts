@@ -1,7 +1,7 @@
 import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
 import BicycleForm from '../components/BicycleForm.vue'
 import HomeView from '../views/HomeView.vue'
-import BicyclesView from '../views/BicyclesView.vue'
+import MoviesView from '../views/MoviesView.vue'
 import FormView from '../views/FormView.vue'
 import LoginView from '../views/LoginView.vue'
 import { auth } from '../firebase'
@@ -21,9 +21,9 @@ const routes: Array<RouteRecordRaw> = [
     }
   },
   {
-    path: '/bicycles',
-    name: 'bicycles',
-    component: BicyclesView,
+    path: '/movies',
+    name: 'movies',
+    component: MoviesView,
     meta: {
       requiresAuth: true
     }
@@ -59,7 +59,7 @@ const router = createRouter({
 
 router.beforeEach((to, from, next) => {
   if (to.path === '/login' && auth.currentUser) {
-    next('/bicycles')
+    next('/movies')
     return;
   }
   if (to.matched.some(record => record.meta.requiresAuth) && !auth.currentUser) {

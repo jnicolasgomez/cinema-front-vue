@@ -1,6 +1,6 @@
 <template>
 	<div v-if="$store.state.user" class="nav">
-		<router-link to="/bicycles">Peliculas</router-link>
+		<router-link to="/movies">Peliculas</router-link>
 		<router-link to="/">Cines</router-link>
 		<router-link to="/create">Nueva Pelicula</router-link>
 		<a style="float:right;" @click="$store.dispatch('logout')">Logout</a>

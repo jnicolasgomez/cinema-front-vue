@@ -11,7 +11,7 @@
                 url="https://tile.openstreetmap.org/{z}/{x}/{y}.png"
             ></l-tile-layer>
             <l-control-layers />
-            <l-marker v-for="bicycle in bicycles" :key="bicycle.id" :lat-lng="bicycle.coordinates ">
+            <l-marker v-for="bicycle in movies" :key="bicycle.id" :lat-lng="bicycle.coordinates ">
                 <l-icon :icon-url="iconUrl" :icon-size="iconSize" />
                 <l-popup>
                     <p>{{bicycle.brand}} - {{bicycle.color}} [{{ bicycle.model }}]</p>
@@ -54,8 +54,8 @@ import store from "@/store";
             iconSize(): [number, number] {
                 return [this.iconWidth, this.iconHeight];
             },
-            bicycles () {
-                return store.getters.bicycles;
+            movies () {
+                return store.getters.movies;
             }
         },
         methods: {

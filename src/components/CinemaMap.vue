@@ -14,8 +14,8 @@
             <l-marker v-for="bicycle in movies" :key="bicycle.id" :lat-lng="bicycle.coordinates ">
                 <l-icon :icon-url="iconUrl" :icon-size="iconSize" />
                 <l-popup>
-                    <p>{{bicycle.brand}} - {{bicycle.color}} [{{ bicycle.model }}]</p>
-                    ({{bicycle.coordinates[0]}},{{bicycle.coordinates[1]}})
+                    <p>{{bicycle.artista}} - {{bicycle.lugar}} [{{ bicycle.año }}]</p>
+                    ({{bicycle.latitud}},{{bicycle.longitud}})
                 </l-popup>
             </l-marker>
         </l-map>
@@ -43,13 +43,13 @@ import store from "@/store";
                 maxZoom: 18,
                 minZoom: 10,
                 initialCoordinates: [6.2476, -75.5658],
-                iconWidth: 50,
-                iconHeight: 50
+                iconWidth: 25,
+                iconHeight: 25
             };
         },
         computed: {
             iconUrl() {
-                return "https://storage.cloud.google.com/red-bicycle-assets/pin_svg7.svg"
+                return "https://www.svgrepo.com/show/255181/location-pin.svg"
             },
             iconSize(): [number, number] {
                 return [this.iconWidth, this.iconHeight];

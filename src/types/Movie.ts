@@ -1,8 +1,10 @@
 interface Movie {
-    title: string,
-    year: number,
-    description: string,
-    score: number,
+    Artista: string,
+    Nombre: string,
+    Año: number,
+    Lugar: string,
+    Latitud: number,
+    Longitud: number,
     _id?: string,
 }
 

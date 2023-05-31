@@ -1,8 +1,8 @@
 <template>
 	<div v-if="$store.state.user" class="nav">
-		<router-link to="/movies">Peliculas</router-link>
-		<router-link to="/">Cines</router-link>
-		<router-link to="/create">Nueva Pelicula</router-link>
+		<router-link to="/movies">Conciertos</router-link>
+		<router-link to="/">Mapa</router-link>
+		<router-link to="/create">Nuevo Concierto</router-link>
 		<a style="float:right;" @click="$store.dispatch('logout')">Logout</a>
 		<a style="float:right;" >{{$store.state.user.email}}</a>
 		<p style="float:right;" >3000 Puntos</p>

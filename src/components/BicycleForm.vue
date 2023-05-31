@@ -1,14 +1,18 @@
 <template>
     <form @submit.prevent="handleSubmit">
-        <h1>{{type}} Pelicula</h1>
-        <label>Titulo</label>
+        <h1>{{type}} Concierto</h1>
+        <label>Artista</label>
         <input v-model="title" type="text" required>
-        <label>Descripción</label>
+        <label>Nombre</label>
         <input  v-model="description" type="text" required>
         <label>Año</label>
         <input v-model="year" type="number" required>
-        <label>puntaje</label>
-        <input v-model="score" type="number" required>
+        <label>Lugar</label>
+        <input v-model="score" type="text" required>
+        <label>Latitud</label>
+        <input v-model="lat" type="number" step="0.0001" min="6.22" max="6.28" required>
+        <label>Longitud</label>
+        <input v-model="long" type="number" min="-75.6" max="-75.53" step="0.0001" required>
         <button> {{type}} </button>
     </form>
 </template>
@@ -36,17 +40,21 @@ export default defineComponent({
             title: '',
             description: '',
             year: 2000,
-            score: 0,
-            brand: ''
+            score: '',
+            brand: '',
+            lat: 6.25,
+            long: -75.56,
         }
     },
     methods: {
         async handleSubmit() {
             const movie: Movie = {
-                title: this.title,
-                year: this.year,
-                description: this.description,
-                score: this.score
+                Artista: this.title,
+                Nombre: this.description,
+                Año: this.year,
+                Lugar: this.score,
+                Latitud: this.lat,
+                Longitud: this.long
             }
             if (this.type === "Editar") {
                 if (this.movieId) {

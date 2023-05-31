@@ -6,7 +6,7 @@ metadata:
     app: cinema-front
   name: cinema-front
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: cinema-front

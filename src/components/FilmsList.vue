@@ -2,8 +2,8 @@
     <div class="bicycle-list">
         <ul>
             <li v-for="bicycle in movies" :key="bicycle._id" >
-                <img src="https://media.istockphoto.com/id/1244034031/vector/cinema-poster-with-cola-film-strip-and-clapper-vector.jpg?s=612x612&w=0&k=20&c=JN4E5qJgcq3qm89rSc2BIJT6AZ80MvRJie__r3OENY8="/>
-                <h2>{{ bicycle.title }}</h2>
+                <img src="https://images.unsplash.com/photo-1540039155733-5bb30b53aa14?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8Y29uY2VydHxlbnwwfHwwfHx8MA%3D%3D&w=1000&q=80"/>
+                <h2>{{ bicycle.artista }}-{{ bicycle.lugar }}</h2>
                 <!--div class="location">
                     <p> {{ bicycle.description}} </p>
                 </div-->
@@ -76,7 +76,7 @@ export default defineComponent({
     }
     .bicycle-list h2 {
         margin: 0 10px 10px;
-        font-size: 14px;
+        font-size: 12px;
         text-transform: capitalize;
         color: white;
     }

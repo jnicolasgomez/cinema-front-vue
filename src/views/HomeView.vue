@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <h1>Cines</h1>
+    <h1>Conciertos</h1>
     <CinemaMap />
   </div>
 </template>
